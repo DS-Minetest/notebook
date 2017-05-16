@@ -20,7 +20,7 @@ minetest.register_chatcommand("notebook", {
 		end
 		minetest.show_formspec("notebook", "size[5,4]"..
 			"textarea[0.05,0;5.5,4;text;Write here anything, you want:;"..
-			(worldstorage.get_string("notebook_notes") or "").."]"..
+			(worldstorage.get_string("notebook:notes") or "").."]"..
 			"button_exit[2,3.5;1,1;save;Save]"..
 			"button_exit[4.5,-0.5;0.5,1;discard;X]"
 		)
@@ -35,7 +35,7 @@ minetest.register_on_formspec_input(function(formname, fields)
 	if not fields.text or fields.discard then
 		return true
 	end
-	worldstorage.set_string("notebook_notes", fields.text)
+	worldstorage.set_string("notebook:notes", fields.text)
 	return true
 end)
 
